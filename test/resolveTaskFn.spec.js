@@ -237,7 +237,9 @@ describe('resolveTaskFn', () => {
     await expect(taskFn(context)).resolves.toMatchInlineSnapshot(`undefined`)
     expect(context).toMatchInlineSnapshot(`
       Object {
+        "diffRef": null,
         "errors": Set {},
+        "full": false,
         "hasPartiallyStagedFiles": null,
         "output": Array [],
         "quiet": false,
@@ -263,7 +265,9 @@ describe('resolveTaskFn', () => {
     await expect(taskFn(context)).resolves.toMatchInlineSnapshot(`undefined`)
     expect(context).toMatchInlineSnapshot(`
       Object {
+        "diffRef": null,
         "errors": Set {},
+        "full": false,
         "hasPartiallyStagedFiles": null,
         "output": Array [
           "
@@ -293,9 +297,11 @@ describe('resolveTaskFn', () => {
     await expect(taskFn(context)).rejects.toThrowErrorMatchingInlineSnapshot(`"mock cmd [1]"`)
     expect(context).toMatchInlineSnapshot(`
       Object {
+        "diffRef": null,
         "errors": Set {
           Symbol(TaskError),
         },
+        "full": false,
         "hasPartiallyStagedFiles": null,
         "output": Array [
           "stderr",
@@ -323,9 +329,11 @@ describe('resolveTaskFn', () => {
     await expect(taskFn(context)).rejects.toThrowErrorMatchingInlineSnapshot(`"mock cmd [1]"`)
     expect(context).toMatchInlineSnapshot(`
       Object {
+        "diffRef": null,
         "errors": Set {
           Symbol(TaskError),
         },
+        "full": false,
         "hasPartiallyStagedFiles": null,
         "output": Array [],
         "quiet": true,

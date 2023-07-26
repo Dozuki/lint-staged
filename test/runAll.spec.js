@@ -40,7 +40,9 @@ describe('runAll', () => {
     expect.assertions(1)
     await expect(runAll({ config: {} })).resolves.toMatchInlineSnapshot(`
             Object {
+              "diffRef": null,
               "errors": Set {},
+              "full": false,
               "hasPartiallyStagedFiles": null,
               "output": Array [
                 "→ No staged files found.",
@@ -55,11 +57,44 @@ describe('runAll', () => {
     expect.assertions(1)
     await expect(runAll({ config: {}, quiet: true })).resolves.toMatchInlineSnapshot(`
             Object {
+              "diffRef": null,
               "errors": Set {},
+              "full": false,
               "hasPartiallyStagedFiles": null,
               "output": Array [],
               "quiet": true,
               "shouldBackup": true,
+            }
+          `)
+  })
+
+  it('should not print output in diff mode when no changes and quiet', async () => {
+    expect.assertions(1)
+    await expect(runAll({ config: {}, quiet: true, diffRef: 'HEAD' })).resolves
+      .toMatchInlineSnapshot(`
+            Object {
+              "diffRef": "HEAD",
+              "errors": Set {},
+              "full": false,
+              "hasPartiallyStagedFiles": null,
+              "output": Array [],
+              "quiet": true,
+              "shouldBackup": false,
+            }
+          `)
+  })
+
+  it('should not print output in full mode when no changes and quiet', async () => {
+    expect.assertions(1)
+    await expect(runAll({ config: {}, quiet: true, full: true })).resolves.toMatchInlineSnapshot(`
+            Object {
+              "diffRef": null,
+              "errors": Set {},
+              "full": true,
+              "hasPartiallyStagedFiles": null,
+              "output": Array [],
+              "quiet": true,
+              "shouldBackup": false,
             }
           `)
   })

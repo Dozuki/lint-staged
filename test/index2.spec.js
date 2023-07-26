@@ -25,7 +25,9 @@ describe('lintStaged', () => {
     expect(Listr.mock.calls[0][1]).toMatchInlineSnapshot(`
       Object {
         "ctx": Object {
+          "diffRef": null,
           "errors": Set {},
+          "full": false,
           "hasPartiallyStagedFiles": null,
           "output": Array [],
           "quiet": true,
@@ -51,7 +53,9 @@ describe('lintStaged', () => {
     expect(Listr.mock.calls[0][1]).toMatchInlineSnapshot(`
       Object {
         "ctx": Object {
+          "diffRef": null,
           "errors": Set {},
+          "full": false,
           "hasPartiallyStagedFiles": null,
           "output": Array [],
           "quiet": false,

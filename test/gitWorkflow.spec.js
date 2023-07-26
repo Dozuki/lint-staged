@@ -67,9 +67,11 @@ describe('gitWorkflow', () => {
       )
       expect(ctx).toMatchInlineSnapshot(`
         Object {
+          "diffRef": null,
           "errors": Set {
             Symbol(GitError),
           },
+          "full": false,
           "hasPartiallyStagedFiles": true,
           "output": Array [],
           "quiet": false,
@@ -91,10 +93,12 @@ describe('gitWorkflow', () => {
       )
       expect(ctx).toMatchInlineSnapshot(`
         Object {
+          "diffRef": null,
           "errors": Set {
             Symbol(GetBackupStashError),
             Symbol(GitError),
           },
+          "full": false,
           "hasPartiallyStagedFiles": null,
           "output": Array [],
           "quiet": false,
@@ -153,10 +157,12 @@ describe('gitWorkflow', () => {
       )
       expect(ctx).toMatchInlineSnapshot(`
         Object {
+          "diffRef": null,
           "errors": Set {
             Symbol(GitError),
             Symbol(HideUnstagedChangesError),
           },
+          "full": false,
           "hasPartiallyStagedFiles": null,
           "output": Array [],
           "quiet": false,
@@ -194,10 +200,12 @@ describe('gitWorkflow', () => {
       )
       expect(ctx).toMatchInlineSnapshot(`
         Object {
+          "diffRef": null,
           "errors": Set {
             Symbol(GitError),
             Symbol(RestoreMergeStatusError),
           },
+          "full": false,
           "hasPartiallyStagedFiles": null,
           "output": Array [],
           "quiet": false,
